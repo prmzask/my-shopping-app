@@ -17,15 +17,10 @@ function App() {
     const message = `選ばれたアイテム: ${selectedItems.join(", ")}`;
     const encodedMessage = encodeURIComponent(message); // メッセージをURLエンコード
     const lineUrl = `https://line.me/R/msg/text/?${encodedMessage}`;
-  
+
     window.open(lineUrl, "_blank"); // 新しいタブでLINEアプリのURLを開く
   };
-  <button
-  onClick={handleShareToLine}
-  disabled={selectedItems.length === 0}
->
-  LINEで共有
-</button>
+
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -33,26 +28,41 @@ function App() {
 
   const items = {
     meat: [
-      { name: "とんかつ", img: "/images/tonkatsu.jpg" },
-      { name: "牛カルビ(焼肉用)", img: "/images/karubi.jpg" },
-      { name: "豚バラスライス", img: "/images/butabara-sli.jpg" },
-
-      { name: "牛こま", img: "/images/gyukoma.jpg" },
-      { name: "豚こま", img: "/images/butakoma.jpg" },
-      { name: "豚バラ(焼肉用)", img: "/images/butabara-yaki.jpg" },
       { name: "鶏むね", img: "/images/torimune.jpg" },
+      { name: "豚こま", img: "/images/butakoma.jpg" },
+      { name: "豚バラ(スライス)", img: "/images/butabara-sli.jpg" },
+      { name: "豚バラ(しゃぶしゃぶ)", img: "/images/butabara-shabu.jpg" },
+
+      { name: "豚かたロース", img: "/images/buta-katarosu.jpg" },
+      { name: "とんかつ", img: "/images/tonkatsu.jpg" },
+      { name: "豚バラ(焼肉用)", img: "/images/butabara-yaki.jpg" },
+     
+      
+      { name: "牛カルビ(焼肉用)", img: "/images/karubi.jpg" },
+      { name: "牛こま", img: "/images/gyukoma.jpg" },
+    
+     
+    
     ],
     fish: [
-      { name: "Salmon", img: "https://via.placeholder.com/150?text=Salmon" },
-      { name: "Tuna", img: "https://via.placeholder.com/150?text=Tuna" },
+      { name: "しゃけ", img: "/images/shake.jpg" },
+      { name: "サバ", img: "/images/saba.jpg" },
+      { name: "ぶり", img: "/images/buri.jpg" },
+      { name: "たい", img: "/images/tai.jpg" },
     ],
     vegetable: [
-      { name: "Carrot", img: "https://via.placeholder.com/150?text=Carrot" },
-      { name: "Broccoli", img: "https://via.placeholder.com/150?text=Broccoli" },
+      { name: "もやし", img: "/images/moyashi.jpg" },
+      { name: "こまつな", img: "/images/komatsuna.jpg" },
+      { name: "キャベツ", img: "/images/han-kyabetu.jpg" },
+      { name: "はくさい", img: "/images/hakusai1_4.jpg" },
+      { name: "にんじん", img: "/images/carrot.jpg" },
+      { name: "だいこん", img: "/images/daikon.jpg" },
+      { name: "ネギ", img: "/images/negi.jpg" },
+      { name: "たまねぎ", img: "/images/tamanegi.jpg" },
     ],
     others: [
-      { name: "Rice", img: "https://via.placeholder.com/150?text=Rice" },
-      { name: "Bread", img: "https://via.placeholder.com/150?text=Bread" },
+      { name: "うずら", img: "/images/uzura.jpg" },
+      { name: "納豆", img: "/images/natto.jpg" },
     ],
   };
 
@@ -61,11 +71,13 @@ function App() {
       <h1>おつかいアプリ</h1>
 
       <div className="tabs">
-        <button onClick={() => handleTabChange("meat")}>肉</button>
-        <button onClick={() => handleTabChange("fish")}>魚</button>
-        <button onClick={() => handleTabChange("vegetable")}>野菜</button>
-        <button onClick={() => handleTabChange("others")}>その他</button>
-      </div>
+  <button className="tab tab-meat" onClick={() => handleTabChange("meat")}>肉</button>
+  <button className="tab tab-fish" onClick={() => handleTabChange("fish")}>魚</button>
+  <button className="tab tab-vegetable" onClick={() => handleTabChange("vegetable")}>野菜</button>
+  <button className="tab tab-others" onClick={() => handleTabChange("others")}>その他</button>
+</div>
+
+
 
       <div className="items">
         {items[activeTab].map((item) => (
@@ -80,12 +92,7 @@ function App() {
         ))}
       </div>
 
-      <button
-        onClick={() => alert(`選ばれたアイテム: ${selectedItems.join(", ")}`)}
-        disabled={selectedItems.length === 0}
-      >
-        選択したアイテムを送信
-      </button>
+      
 
  {/* LINEで共有ボタン */}
  <button

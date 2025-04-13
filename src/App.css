@@ -72,6 +72,27 @@
   cursor: pointer;
 }
 
+.tab-meat {
+  background-color: #ff4d4d; /* 鮮やかな赤 */
+  color: white;
+}
+
+.tab-fish {
+  background-color: #4da6ff; /* さわやかな青 */
+  color: white;
+}
+
+.tab-vegetable {
+  background-color: #4CAF50;/* 今の可愛い緑系の色そのままでOKならこのまま */
+  color: white;
+}
+
+.tab-others {
+  background-color: #c36ad9; /* 落ち着いたパステル寄りの紫 */
+  color: white;
+}
+
+
 /* ボタンのスタイル */
 button {
   padding: 10px 20px;
@@ -101,9 +122,11 @@ button {
     font-size: 1.2rem;
   }
 }
-img {
+.item img {
   width: 100%;
   height: auto;
+  max-width: 140px;
+  border-radius: 10px;
 }
 
 .items {
