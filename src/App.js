@@ -14,13 +14,12 @@ function App() {
   };
 
   const handleShareToLine = () => {
-    const message = `選ばれたアイテム: ${selectedItems.join(", ")}`;
-    const encodedMessage = encodeURIComponent(message); // メッセージをURLエンコード
-    const lineUrl = `https://line.me/R/msg/text/?${encodedMessage}`;
-
-    window.open(lineUrl, "_blank"); // 新しいタブでLINEアプリのURLを開く
+    const itemQuery = encodeURIComponent(selectedItems.join(","));
+    const shareUrl = `https://your-app.com/shared?items=${itemQuery}`;
+    const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent("これ買ってきて！")}%0A${shareUrl}`;
+  
+    window.open(lineUrl, "_blank");
   };
-
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
