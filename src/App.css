@@ -1,0 +1,143 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 全体のレイアウト設定 */
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+/* タブの配置 */
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* 画面が小さくなったときにタブが折り返し */
+  margin-top: 20px;
+}
+
+/* タブのスタイル */
+.tab {
+  width: 100%;
+  max-width: 200px;
+  margin: 10px;
+  text-align: center;
+}
+
+.tab h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.tab img {
+  width: 100%;
+  max-width: 150px; /* 画像サイズを最大でも150pxに制限 */
+  height: auto;
+  cursor: pointer;
+}
+
+/* ボタンのスタイル */
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+/* 画面幅が768px以下になった場合のスタイル */
+@media (max-width: 768px) {
+  .tabs {
+    flex-direction: column; /* タブを縦並びに */
+    align-items: center;
+  }
+
+  .tab {
+    width: 80%; /* 幅を少し狭くする */
+    max-width: none; /* 最大幅を解除して、親要素に合わせる */
+  }
+
+  button {
+    width: 100%; /* ボタンも画面いっぱいに広がるように */
+    font-size: 1.2rem;
+  }
+}
+img {
+  width: 100%;
+  height: auto;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2列 */
+  gap: 20px; /* アイテム間の余白 */
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+.item {
+  cursor: pointer;
+  border: 2px solid transparent;
+  padding: 10px;
+  transition: border 0.2s;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.item.selected {
+  border: 2px solid #4CAF50;
+  background-color: #e6f7e6;
+}
+
+.item img {
+  width: 100%;  /* 親の幅に合わせる */
+  height: auto; /* アスペクト比保持 */
+  max-width: 140px;
+  border-radius: 10px;
+}
+
+.item p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  word-break: break-word;
+}
+
