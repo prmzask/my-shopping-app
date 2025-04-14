@@ -15,7 +15,7 @@ function App() {
 
   const handleShareToLine = () => {
     const itemQuery = encodeURIComponent(selectedItems.join(","));
-    const shareUrl = `https://your-app.com/shared?items=${itemQuery}`;
+    const shareUrl = `https://shopping-app1-prmzasks-projects.vercel.app/shared?items=${itemQuery}`;
     const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent("これ買ってきて！")}%0A${shareUrl}`;
   
     window.open(lineUrl, "_blank");
