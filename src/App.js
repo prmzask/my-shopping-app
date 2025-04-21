@@ -14,10 +14,8 @@ function App() {
   };
 
   const handleShareToLine = () => {
-    const itemQuery = encodeURIComponent(selectedItems.join(","));
-    const shareUrl = `https://shopping-app1-prmzasks-projects.vercel.app/shared?items=${itemQuery}`;
-    const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent("これ買ってきて！")}%0A${shareUrl}`;
-  
+    const message = selectedItems.join("、");
+    const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent(message)}`;
     window.open(lineUrl, "_blank");
   };
 
@@ -31,18 +29,12 @@ function App() {
       { name: "豚こま", img: "/images/butakoma.jpg" },
       { name: "豚バラ(スライス)", img: "/images/butabara-sli.jpg" },
       { name: "豚バラ(しゃぶしゃぶ)", img: "/images/butabara-shabu.jpg" },
-
       { name: "豚かたロース", img: "/images/buta-katarosu.jpg" },
       { name: "とんかつ", img: "/images/tonkatsu.jpg" },
       { name: "豚バラ(焼肉用)", img: "/images/butabara-yaki.jpg" },
-     
-      
       { name: "牛カルビ(焼肉用)", img: "/images/karubi.jpg" },
       { name: "牛こま", img: "/images/gyukoma.jpg" },
       { name: "牛豚合い挽きミンチ", img: "/images/aibiki.jpg" },
-    
-     
-    
     ],
     fish: [
       { name: "しゃけ", img: "/images/shake.jpg" },
@@ -71,13 +63,11 @@ function App() {
       <h1>おつかいアプリ</h1>
 
       <div className="tabs">
-  <button className="tab tab-meat" onClick={() => handleTabChange("meat")}>肉</button>
-  <button className="tab tab-fish" onClick={() => handleTabChange("fish")}>魚</button>
-  <button className="tab tab-vegetable" onClick={() => handleTabChange("vegetable")}>野菜</button>
-  <button className="tab tab-others" onClick={() => handleTabChange("others")}>その他</button>
-</div>
-
-
+        <button className="tab tab-meat" onClick={() => handleTabChange("meat")}>肉</button>
+        <button className="tab tab-fish" onClick={() => handleTabChange("fish")}>魚</button>
+        <button className="tab tab-vegetable" onClick={() => handleTabChange("vegetable")}>野菜</button>
+        <button className="tab tab-others" onClick={() => handleTabChange("others")}>その他</button>
+      </div>
 
       <div className="items">
         {items[activeTab].map((item) => (
@@ -92,19 +82,15 @@ function App() {
         ))}
       </div>
 
-      
-
- {/* LINEで共有ボタン */}
- <button
+      {/* LINEで共有ボタン */}
+      <button
         onClick={handleShareToLine}
         disabled={selectedItems.length === 0}
       >
         LINEで共有
       </button>
-
     </div>
   );
 }
 
 export default App;
-

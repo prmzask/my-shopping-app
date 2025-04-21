@@ -10,13 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/prmzask/shopping-app.git"
+    "url": "https://github.com/prmzask/my-shopping-app.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/prmzask/shopping-app/issues"
+    "url": "https://github.com/prmzask/my-shopping-app/issues"
   },
   "dependencies": {
     "react": "^18.3.1",
