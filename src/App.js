@@ -82,7 +82,6 @@ function App() {
         ))}
       </div>
 
-      {/* LINEで共有ボタン */}
       <button
         onClick={handleShareToLine}
         disabled={selectedItems.length === 0}
