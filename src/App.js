@@ -51,10 +51,13 @@ function App() {
       { name: "だいこん", img: "/images/daikon.jpg" },
       { name: "ネギ", img: "/images/negi.jpg" },
       { name: "たまねぎ", img: "/images/tamanegi.jpg" },
+      { name: "トマト", img: "/images/tomato.jpg" },
+      { name: "まいたけ", img: "/images/maitake.jpg" },
     ],
     others: [
       { name: "うずら", img: "/images/uzura.jpg" },
       { name: "納豆", img: "/images/natto.jpg" },
+      { name: "餃子の皮", img: "/images/gyoza.jpg" },
     ],
   };
 
