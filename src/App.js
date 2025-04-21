@@ -39,6 +39,7 @@ function App() {
       
       { name: "牛カルビ(焼肉用)", img: "/images/karubi.jpg" },
       { name: "牛こま", img: "/images/gyukoma.jpg" },
+      { name: "牛豚合い挽きミンチ", img: "/images/aibiki.jpg" },
     
      
     
