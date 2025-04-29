@@ -30,6 +30,9 @@ const allItems = {
     { name: "たまねぎ", img: "/images/tamanegi.jpg" },
     { name: "トマト", img: "/images/tomato.jpg" },
     { name: "まいたけ", img: "/images/maitake.jpg" },
+    { name: "エリンギ", img: "/images/eringi.jpg" },
+    { name: "しめじ", img: "/images/simeji.jpg" },
+    { name: "しょうが", img: "/images/shoga.jpg" },
   
   ],
 
@@ -37,6 +40,13 @@ const allItems = {
     { name: "うずら", img: "/images/uzura.jpg" },
     { name: "納豆", img: "/images/natto.jpg" },
     { name: "餃子の皮", img: "/images/gyoza.jpg" },
+    { name: "うどん", img: "/images/udon.jpeg" },
+    { name: "油揚げ", img: "/images/age.jpg" },
+    { name: "厚揚げ", img: "/images/atsuage.jpg" },
+    { name: "そば", img: "/images/soba.jpg" },
+    { name: "そばつゆ", img: "/images/sobatsuyu.jpg" },
+    { name: "しょうがスライス", img: "/images/shogaslice.jpg" },
+    { name: "たまご豆腐", img: "/images/tofu.jpg" },
   ],
 };
 
