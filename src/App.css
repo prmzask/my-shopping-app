@@ -92,12 +92,17 @@
   color: white;
 }
 
+.tab.active {
+  border: 3px solid #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
 
 /* ボタンのスタイル */
 button {
   padding: 10px 20px;
   margin-top: 20px;
-  background-color: #4CAF50;
+  background-color:#f7a4ac
+  ;
   color: white;
   border: none;
   cursor: pointer;
@@ -165,7 +170,24 @@ button {
 }
 
 .App {
-  background-color: rgba(0, 0, 0, 0.05); /* 透明度を持たせて薄いグレーに */
+  background:linear-gradient(to bottom right, #e0c3fc, #8ec5fc); /* ピンク→青のグラデーション */
   min-height: 100vh;
   font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
 }
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* ボタン間のスペースを調整 */
+  justify-content: center; /* 横並びで中央寄せに */
+  flex-wrap: nowrap; /* 縦に折り返さない */
+}
+
+.quantity-controls button {
+  padding: 5px 10px; /* ボタンのサイズを調整 */
+  font-size: 1.2rem; /* ボタンのフォントサイズ */
+  cursor: pointer;
+}
+

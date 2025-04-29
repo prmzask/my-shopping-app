@@ -2,25 +2,34 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [selectedItems, setSelectedItems] = useState([]);
+  const [quantities, setQuantities] = useState({});
   const [activeTab, setActiveTab] = useState("meat");
-
-  const handleItemClick = (item) => {
-    setSelectedItems((prevItems) =>
-      prevItems.includes(item)
-        ? prevItems.filter((i) => i !== item)
-        : [...prevItems, item]
-    );
-  };
-
-  const handleShareToLine = () => {
-    const message = selectedItems.join("、");
-    const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent(message)}`;
-    window.open(lineUrl, "_blank");
-  };
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
+  };
+
+  const changeQuantity = (itemName, delta) => {
+    setQuantities((prev) => {
+      const newQty = (prev[itemName] || 0) + delta;
+      if (newQty <= 0) {
+        const updated = { ...prev };
+        delete updated[itemName];
+        return updated;
+      }
+      return {
+        ...prev,
+        [itemName]: newQty,
+      };
+    });
+  };
+
+  const handleShareToLine = () => {
+    const selected = Object.entries(quantities)
+      .map(([name, qty]) => `${name}×${qty}`)
+      .join("、");
+    const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent(selected)}`;
+    window.open(lineUrl, "_blank");
   };
 
   const items = {
@@ -77,28 +86,30 @@ function App() {
       <h1>おつかいアプリ</h1>
 
       <div className="tabs">
-        <button className="tab tab-meat" onClick={() => handleTabChange("meat")}>肉</button>
-        <button className="tab tab-fish" onClick={() => handleTabChange("fish")}>魚</button>
-        <button className="tab tab-vegetable" onClick={() => handleTabChange("vegetable")}>野菜</button>
-        <button className="tab tab-others" onClick={() => handleTabChange("others")}>その他</button>
-      </div>
+  <button className={`tab tab-meat ${activeTab === "meat" ? "active" : ""}`} onClick={() => handleTabChange("meat")}>肉</button>
+  <button className={`tab tab-fish ${activeTab === "fish" ? "active" : ""}`} onClick={() => handleTabChange("fish")}>魚</button>
+  <button className={`tab tab-vegetable ${activeTab === "vegetable" ? "active" : ""}`} onClick={() => handleTabChange("vegetable")}>野菜</button>
+  <button className={`tab tab-others ${activeTab === "others" ? "active" : ""}`} onClick={() => handleTabChange("others")}>その他</button>
+</div>
+
 
       <div className="items">
         {items[activeTab].map((item) => (
-          <div
-            key={item.name}
-            onClick={() => handleItemClick(item.name)}
-            className={`item ${selectedItems.includes(item.name) ? "selected" : ""}`}
-          >
+          <div key={item.name} className="item">
             <img src={item.img} alt={item.name} />
             <p>{item.name}</p>
+            <div className="quantity-controls">
+              <button onClick={() => changeQuantity(item.name, -1)}>-</button>
+              <span>{quantities[item.name] || 0}</span>
+              <button onClick={() => changeQuantity(item.name, 1)}>+</button>
+            </div>
           </div>
         ))}
       </div>
 
       <button
         onClick={handleShareToLine}
-        disabled={selectedItems.length === 0}
+        disabled={Object.keys(quantities).length === 0}
       >
         LINEで共有
       </button>
