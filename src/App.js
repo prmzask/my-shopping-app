@@ -39,6 +39,7 @@ function App() {
       { name: "豚バラ(スライス)", img: "/images/butabara-sli.jpg" },
       { name: "豚バラ(しゃぶしゃぶ)", img: "/images/butabara-shabu.jpg" },
       { name: "豚かたロース", img: "/images/buta-katarosu.jpg" },
+      { name: "豚ミンチ", img: "/images/butaminchi.jpg" },
       { name: "とんかつ", img: "/images/tonkatsu.jpg" },
       { name: "豚バラ(焼肉用)", img: "/images/butabara-yaki.jpg" },
       { name: "牛カルビ(焼肉用)", img: "/images/karubi.jpg" },
@@ -66,6 +67,7 @@ function App() {
       { name: "エリンギ", img: "/images/eringi.jpg" },
       { name: "しめじ", img: "/images/simeji.jpg" },
       { name: "しょうが", img: "/images/shoga.jpg" },
+      { name: "ニラ", img: "/images/nira.jpg" },
     ],
     others: [
       { name: "うずら", img: "/images/uzura.jpg" },
